@@ -4,3 +4,8 @@ default-authentication-plugin=mysql_native_password
 
 # Listen on all interfaces
 bind-address=0.0.0.0
+
+# No replicas on Render: disable binary logging.
+# Default MySQL 8 keeps binlogs for 30 days (up to 1GB each) and filled
+# the disk (~10GB) while the real database was only ~30MB.
+skip-log-bin
